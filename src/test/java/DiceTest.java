@@ -12,7 +12,7 @@ public class DiceTest
         for (int i = 4; i <= 10; i++)
         {
             Dice dice = new Dice(i, "color");
-            testcheckRange(1, i, dice.roll());
+            testCheckRange(1, i, dice.roll());
         }
 
     }
@@ -24,7 +24,7 @@ public class DiceTest
         assertThrows(ArrayIndexOutOfBoundsException.class, () -> dice.rollMany(10));
     }
 
-    private void testcheckRange(int low, int high, int value)
+    private void testCheckRange(int low, int high, int value)
     {
         assertTrue(value >= low);
         assertTrue(value <= high);
