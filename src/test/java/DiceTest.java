@@ -1,11 +1,21 @@
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class DiceTest
 {
+
+    @Test
+    public void testToString()
+    {
+        for (int i = 4; i < 25; i++)
+        {
+            Dice dice = new Dice(i, "color");
+            assertEquals("A " + i + " sided die", dice.toString());
+        }
+    }
+
     @Test
     public void testRollRange()
     {
