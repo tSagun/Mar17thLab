@@ -1,7 +1,6 @@
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class DiceTest
@@ -17,11 +16,18 @@ public class DiceTest
 
     }
 
-    @Test
+    @RepeatedTest(5)
     public void testRollMany()
     {
-        Dice dice = new Dice(10, "black");
-        assertThrows(ArrayIndexOutOfBoundsException.class, () -> dice.rollMany(10));
+        for (int i = 4; i <= 10; i++)
+        {
+            Dice dice = new Dice(i, "color");
+            int[] diceNumbers = dice.rollMany(i);
+            for (int j = 0; j < i; j++)
+            {
+                checkRange(1, i, diceNumbers[j]);
+            }
+        }
     }
 
     private void checkRange(int low, int high, int value)
