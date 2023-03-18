@@ -7,6 +7,13 @@ public class DiceTest
 {
 
     @Test
+    public void testGetters()
+    {
+        Dice dice = new Dice(10, "color");
+        assertEquals(10, dice.getSides());
+        assertEquals("color", dice.getColor());
+    }
+    @Test
     public void testToString()
     {
         for (int i = 4; i < 25; i++)
